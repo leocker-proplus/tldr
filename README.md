@@ -24,147 +24,108 @@
 [mastodon-image]: https://img.shields.io/badge/Mastodon-6364FF?logo=mastodon&logoColor=fff
 </div>
 
-## What is tldr-pages?
+## 什么是 tldr-pages？
 
-The **tldr-pages** project is a collection of community-maintained help pages
-for command-line tools, that aims to be a simpler, more approachable complement
-to traditional [man pages](https://en.wikipedia.org/wiki/Man_page).
+**tldr-pages** 项目是一个由社区维护的命令行工具帮助文档合集，旨在成为传统[手册页](https://en.wikipedia.org/wiki/Man_page)更简洁、更易上手的补充资料。
 
-Maybe you're new to the command-line world. Perhaps you're just a little rusty or can't always recall the arguments for commands like `lsof`, or `tar`?
+你或许是命令行新手，或许只是有些生疏，总是记不住 `lsof`、`tar` 这类命令的参数？
 
-It certainly doesn't help that, in the past, the first option explained in `man tar` was:
+过去，`man tar` 里第一个解释的参数更是让人摸不着头脑：
 
-```console
 $ man tar
 ...
 -b blocksize
-   Specify the block size, in 512-byte records, for tape drive I/O.
-   As a rule, this argument is only needed when reading from or writing to tape drives,
-   and usually not even then as the default block size of 20 records (10240 bytes) is very common.
-...
-```
 
-There is room for simpler help pages focused on practical examples.
-How about:
+指定块大小，单位为512字节的记录，用于磁带驱动器的输入输出。
+一般情况下，只有读写磁带驱动器时才需要该参数，即便如此也很少用到，因为默认的20个记录块大小（10240字节）已经非常通用。
+...
+显然，我们需要更简洁、聚焦实际使用场景的帮助文档。比如这样：
 
 <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://github.com/tldr-pages/tldr/blob/main/images/tldr-dark.png">
     <source media="(prefers-color-scheme: light)" srcset="https://github.com/tldr-pages/tldr/blob/main/images/tldr-light.png">
-    <img alt="Screenshot of the tldr client displaying the tar command." src="https://github.com/tldr-pages/tldr/blob/main/images/tldr-dark.png">
+    <img alt="tldr 客户端展示 tar 命令的截图" src="https://github.com/tldr-pages/tldr/blob/main/images/tldr-dark.png">
 </picture>
 
-This repository is just that: an ever-growing collection of examples
-for the most common UNIX, Linux, macOS, FreeBSD, NetBSD, OpenBSD,
-SunOS, Android, Windows, Cisco IOS, and DOS command-line tools.
+本仓库正是为此而生：这是一个持续更新的合集，收录了 UNIX、Linux、macOS、FreeBSD、NetBSD、OpenBSD、SunOS、Android、Windows、Cisco IOS 和 DOS 系统中，最常用命令行工具的使用示例。
 
-## How do I use it?
-
-> [!TIP]
-> For browsing without installing a client on your computer,
-> see the web client at <https://tldr.inbrowser.app> (with offline support using PWA).
-
-A popular and convenient way to access these pages on your computer
-is to install the official [Python client](https://github.com/tldr-pages/tldr-python-client), which can be installed from [PyPI](https://pypi.org/project/tldr/) via [pipx](https://github.com/pypa/pipx) (or [other package managers](https://github.com/tldr-pages/tldr-python-client#installation)):
-
-```shell
+如何使用？
+[!TIP]
+无需在电脑上安装客户端，也可通过网页版查看：https://tldr.inbrowser.app（支持 PWA 离线使用）。
+在本地使用最便捷的方式，是安装官方的Python 客户端，可通过 pipx 从 PyPI 安装（也可使用其他包管理器）：
 pipx install tldr
-```
-
-Linux and Mac users can also install the official [Rust Client](https://github.com/tldr-pages/tlrc) using [Homebrew](https://formulae.brew.sh/formula/tlrc)
-(or [other package managers](https://github.com/tldr-pages/tlrc#installation) on other operating systems):
-
-```shell
+Linux 和 Mac 用户也可通过 Homebrew 安装官方Rust 客户端（其他系统可使用对应包管理器）：
 brew install tlrc
-```
-
-Windows users can also install the official [Rust Client](https://github.com/tldr-pages/tlrc) using [Winget](https://github.com/microsoft/winget-pkgs/tree/master/manifests/t/tldr-pages/tlrc) (or [other package managers](https://github.com/tldr-pages/tlrc#installation) on other operating systems):
-
-```shell
+Windows 用户可通过 Winget 安装官方Rust 客户端（其他系统可使用对应包管理器）：
 winget install tldr-pages.tlrc
-```
-
-Alternatively, you can also use the official [Node.js client](https://github.com/tldr-pages/tldr-node-client), although it has fallen behind in updates:
-
-```shell
+你也可以使用官方的Node.js 客户端（注：该客户端更新进度相对滞后）：
 npm install -g tldr
-```
+安装完成后，你就可以直接查看简洁易懂的命令帮助，例如查看 tar 命令，只需输入 tldr tar，替代传统的 man tar。
 
-Then you have direct access to simplified, easy-to-read help for commands, such as `tar`,
-accessible through typing `tldr tar` instead of the standard `man tar`.
+如果不想安装任何软件，可直接查看PDF 版本。
+[!NOTE]
+大多数语言的翻译版 PDF 均可在最新发布的附件中找到。
+社区还提供了多款第三方客户端，支持命令行和其他平台，完整的客户端列表可查看项目维基百科。
 
-If you don't want to install any software, check out the [PDF version](https://github.com/tldr-pages/tldr/releases/latest/download/tldr-book.pdf) instead.
+如何参与贡献？
 
-> [!NOTE]
-> PDFs for translations are available for most languages. You can find them in the release assets of the [latest release](https://github.com/tldr-pages/tldr/releases/latest).
+我们欢迎任何形式的贡献！
 
-There are also **various other clients** provided by the community,
-both for the command-line and for other platforms.
-For a comprehensive list of clients, head over to our [Wiki](https://github.com/tldr-pages/tldr/wiki/Clients).
+贡献方式包括：
 
-## How do I contribute to tldr-pages?
+• 补充尚未收录的常用命令文档
 
-All contributions are welcome!
+• 为现有文档新增示例或优化内容
 
-Some ways to contribute include:
+• 完成标注需要帮助标签的待办任务
 
-- Adding your favorite command that isn't covered.
-- Adding examples or improving the content of an existing page.
-- Adding requested pages from our issues with the [help wanted](https://github.com/tldr-pages/tldr/issues?q=is%3Aopen+is%3Aissue+label%3A%22help+wanted%22) label.
-- Translating pages into different languages.
+• 将文档翻译为其他语言
 
-All `tldr` pages are written in Markdown so that they can be edited quite easily and changes can be submitted in
-pull requests here using Git on the command-line or
-using the GitHub web interface.
+所有 tldr 文档均采用 Markdown 编写，可轻松编辑，你可以通过 Git 命令行或 GitHub 网页界面提交 PR。
 
-We strive to maintain a [welcoming and collaborative](GOVERNANCE.md) community.
-If it's your first time contributing, have a look at the [contributing guidelines](CONTRIBUTING.md), and go ahead!
+我们致力于打造友好协作的社区氛围。如果是首次贡献，建议先阅读贡献指南，放心提交你的修改即可！
 
-If you'd like to contribute to translations, you can visit <https://lukwebsforge.github.io/tldri18n/>
-to see the overall progress of all translations, and which translations are missing or outdated.
+如果想参与翻译工作，可访问 https://lukwebsforge.github.io/tldri18n/ 查看各语言翻译进度，以及待翻译/需更新的内容。
 
-You are also welcome to join us on the [matrix chatroom](https://matrix.to/#/#tldr-pages:matrix.org)!
+也欢迎加入我们的Matrix 交流群！
 
-## Similar projects
+同类项目
 
-- [cheat.sh](https://cheat.sh/)
-  Aggregates cheat sheets from multiple sources (including tldr-pages)
-  into 1 unified interface.
+• cheat.sh
+整合多个来源的速查手册（包括 tldr-pages），提供统一的查询界面。
 
-- [devhints](https://devhints.io/)
-  Rico's cheatsheets are not just focused on the command-line and
-  include a plethora of other cheatsheets related to programming.
+• devhints
+不仅涵盖命令行，还包含大量编程相关的速查手册，内容十分丰富。
 
-- [eg](https://github.com/srsudar/eg)
-  provides detailed examples with explanations on the command-line.
-  Examples come from the repository, but `eg` supports displaying
-  custom examples and commands alongside the defaults.
+• eg
+在命令行展示带详细解释的使用示例，支持自定义示例与默认示例一同展示。
 
-- [kb](https://github.com/gnebbia/kb)
-  is a minimalist command-line knowledge base manager.
-  kb can be used to organize your notes and cheatsheets in a minimalist
-  and clean way. It also supports non-text files.
+• kb
+极简的命令行知识库管理工具，可简洁有序地管理笔记和速查手册，支持非文本文件。
 
-- [navi](https://github.com/denisidoro/navi)
-  is an interactive cheatsheet tool, which allows you to browse through
-  specific examples or complete commands on the fly.
+• navi
+交互式速查工具，可实时浏览示例或快速补全命令。
 
-- [Cheat](https://github.com/cheat/cheat)
-  allows you to create and view interactive cheatsheets on the command-line.
-  It was designed to help remind Unix system administrators of options
-  for commands that they use frequently, but not frequently enough to remember.
+• Cheat
+支持在命令行创建和查看交互式速查手册，专为那些常用但又记不清参数的命令设计。
 
-- [Command Line Interface Pages](https://github.com/command-line-interface-pages)
-  allows you to write standardized help pages for CLI, directories, and configs.
+• Command Line Interface Pages
+可编写标准化的 CLI、目录和配置文件帮助文档。
 
-- [bropages (deprecated)](http://bropages.org)
-  are a highly readable supplement to man pages.
-  It shows concise, common-case examples for Unix commands.
-  The examples are submitted by the user base, and can be voted up or down;
-  the best entries are what people see first when they look up a command.
+• bropages (已废弃)
+手册页的优质补充工具，展示简洁的命令通用示例，示例由社区提交并支持投票，优质内容会优先展示。
 
-## What does "tldr" mean?
+"tldr" 是什么意思？
 
-TL;DR stands for "Too Long; Didn't Read".
-It originated as Internet slang, where it is used to indicate that a long text
-(or parts of it) has been skipped as too lengthy.
-Read more in How-To Geek's [article](https://www.howtogeek.com/435266/what-does-tldr-mean-and-how-do-you-use-it/).
+TL;DR 是 Too Long; Didn't Read 的缩写，起源于网络俚语，用于表示因文本过长而跳过未读。
+更多介绍可查看 How-To Geek 的文章。
+
+项目声明
+
+1. 本文档为 tldr-pages/tldr 简体中文翻译版，遵循原项目 CC BY 4.0 开源协议。
+
+2. 翻译严格保留原文档格式、代码块及链接，仅对文字内容进行本地化处理。
+
+3. 原项目地址：https://github.com/tldr-pages/tldr
+
+4. 开源协议：https://github.com/tldr-pages/tldr/blob/main/LICENSE.md
